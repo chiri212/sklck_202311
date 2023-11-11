@@ -4,8 +4,8 @@
     @yield('head')
 </head>
 <body>
-    <div class="title">@yield('title')</div>
     <div id="wrapper">
+        <h1 id="page-title" class="fs-2 mb-4">@yield('title')</h1>
         @yield('content')
     </div>
 </body>
