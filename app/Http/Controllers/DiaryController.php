@@ -25,7 +25,7 @@ class DiaryController extends Controller
      */
     public function create()
     {
-        //
+        return view('diary.create');
     }
 
     /**
@@ -33,7 +33,10 @@ class DiaryController extends Controller
      */
     public function store(StoreDiaryRequest $request)
     {
-        //
+        Diary::create([
+            'text' => $request->text,
+        ]);
+        return redirect()->route('diary.index');
     }
 
     /**

@@ -9,10 +9,16 @@
 @import 'bootstrap-icons/font/bootstrap-icons.css';
 
 #wrapper {
+    padding:0 10px;
     max-width:780px;
     margin:50px auto;
 }
 
 .diary_row {
     height:65px;
+}
+
+.error-message{
+    margin-right:10px;
+    color:red;
 }
