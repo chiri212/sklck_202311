@@ -13,8 +13,8 @@ class DiaryController extends Controller
      */
     public function index()
     {
-        $diaries = Diary::get();
-
+        $page_max_limit = config('diary.page_max_limit');
+        $diaries = Diary::orderBy('created_at', 'desc')->paginate($page_max_limit)->withQueryString();
         return view('diary.index', [
             'diaries' => $diaries,
         ]);
