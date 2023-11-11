@@ -7,12 +7,12 @@
     @method('PUT')
     @csrf
     <div class="mb-3">
-        <label for="text" class="form-label">投稿内容
+        <label for="text" class="form-label">投稿内容 <span class="text-danger">*</span>
             @error('text')
             <span class="fs-6 text-danger"> {{$message}}</span>
             @enderror
         </label>
-        <input type="text" class="form-control" id="text" name="text" value="{{$diary->text}}" placeholder="投稿内容を記入">
+        <input type="text" class="form-control" id="text" name="text" value="{{old('text', $diary->text)}}" placeholder="投稿内容を記入">
     </div>
     <div class="mb-3 d-flex justify-content-end">
         <button type="submit" class="btn btn-primary px-4">更新</button>
