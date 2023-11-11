@@ -17,7 +17,7 @@
         <td>{{$diary->created_at}}</td>
         <td>{{$diary->image}}</td>
         <td>{{$diary->text}}</td>
-        <td class="text-center"><i class="bi bi-pencil-square" onclick="location.href='{{route('diary.edit', $diary->id)}}'"></i></td>
+        <td class="text-center"><i class="bi bi-pencil-square" onclick="location.href='{{route('diary.edit', $diary)}}'"></i></td>
     </tr>
     @endforeach
 </table>

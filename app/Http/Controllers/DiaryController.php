@@ -52,7 +52,9 @@ class DiaryController extends Controller
      */
     public function edit(Diary $diary)
     {
-        //
+        return view('diary.edit', [
+            'diary' => $diary,
+        ]);
     }
 
     /**
@@ -60,7 +62,10 @@ class DiaryController extends Controller
      */
     public function update(UpdateDiaryRequest $request, Diary $diary)
     {
-        //
+        $diary->text = $request->text;
+        $diary->save();
+        return redirect()->route('diary.index');
+
     }
 
     /**
