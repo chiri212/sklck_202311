@@ -70,7 +70,7 @@ return [
     |
     */
 
-    // 'timezone' => 'UTC',
+    // 'timezone' => 'Asia/Tokyo',
     'timezone' => 'Asia/Tokyo',
 
     /*
