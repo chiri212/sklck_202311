@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html land="ja-JP">
+<html lang="ja-JP">
 <head>
     @yield('head')
 </head>
