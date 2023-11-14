@@ -33,7 +33,7 @@ class DiaryController extends Controller
      */
     public function store(StoreDiaryRequest $request)
     {
-        // ファイル名を取得
+        // 画像を保存してファイルパスを取得
         $image_path = $request->file('image')->store('public');
 
         Diary::create([
@@ -66,10 +66,13 @@ class DiaryController extends Controller
      */
     public function update(UpdateDiaryRequest $request, Diary $diary)
     {
+        // 画像を保存してファイルパスを取得
+        $image_path = $request->file('image')->store('public');
+
         $diary->text = $request->text;
+        $diary->image= 'storage/' . basename($image_path);
         $diary->save();
         return redirect()->route('diary.index');
-
     }
 
     /**
