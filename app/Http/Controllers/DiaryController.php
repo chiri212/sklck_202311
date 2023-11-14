@@ -33,8 +33,12 @@ class DiaryController extends Controller
      */
     public function store(StoreDiaryRequest $request)
     {
+        // ファイル名を取得
+        $image_path = $request->file('image')->store('public');
+
         Diary::create([
             'text' => $request->text,
+            'image' => 'storage/' . basename($image_path),
         ]);
         return redirect()->route('diary.index');
     }

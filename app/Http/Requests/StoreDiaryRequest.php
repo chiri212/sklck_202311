@@ -22,7 +22,8 @@ class StoreDiaryRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'text' => ['required', 'max:40']
+            'text'  => ['required', 'max:40'],
+            'image' => ['image', 'mimes:jpeg,jpg', 'max:1024'],
         ];
     }
 }
