@@ -14,7 +14,7 @@
         <input type="text" class="form-control" id="text" name="text" value="{{old('text')}}" placeholder="投稿内容を記入">
     </div>
     <div class="mb-3">
-        <label for="image" class="form-label">画像 <span class="text-danger">*</span>
+        <label for="image" class="form-label">画像
             @error('image')
             <span class="fs-6 text-danger"> {{$message}}</span>
             @enderror
