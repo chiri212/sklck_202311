@@ -25,4 +25,11 @@
     <div class="mb-3 d-flex justify-content-end">
         <button type="submit" class="btn btn-primary px-4">更新</button>
     </div>
+    <form action="{{route('diary.destroy', $diary->id)}}" method="post">
+        @method('DELETE')
+        @csrf
+        <div class="mb-3 d-flex justify-content-end">
+            <button type="submit" class="btn btn-danger px-4" onclick='return confirm("削除しますか？");'>削除</button>
+        </div>
+    </form>
 @endsection

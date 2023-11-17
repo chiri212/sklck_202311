@@ -86,6 +86,9 @@ class DiaryController extends Controller
      */
     public function destroy(Diary $diary)
     {
-        //
+        $diary->delete();
+
+        // TODO : 画像削除処理を追加
+        return redirect()->route('diary.index');
     }
 }
