@@ -6,6 +6,7 @@ use App\Http\Requests\StoreDiaryRequest;
 use App\Http\Requests\UpdateDiaryRequest;
 use App\Models\Diary;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Log;
 
 class DiaryController extends Controller
 {
@@ -70,16 +71,18 @@ class DiaryController extends Controller
      */
     public function update(UpdateDiaryRequest $request, Diary $diary)
     {
-        // 画像を保存してファイルパスを取得
+        $diary->text = $request->text;
+        // 画像の更新処理
         $file_name = null;
         if ($request->file('image')){
             $image_path = $request->file('image')->store('public');
             $file_name = basename($image_path);
+            $old_image = $diary->image;
+            $diary->image= $file_name;
+            // 元の画像を削除
+            Storage::disk('public')->delete($old_image);
         }
-        $diary->text = $request->text;
-        $diary->image= $file_name;
         $diary->save();
-        // TODO : 古い画像の削除処理
         return redirect()->route('diary.index');
     }
 
