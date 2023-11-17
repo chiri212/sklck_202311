@@ -53,7 +53,8 @@ class DiaryController extends Controller
      */
     public function show(Diary $diary)
     {
-        //
+        // 詳細ページは存在しないため一覧を返却
+        return redirect()->route('diary.index');
     }
 
     /**
@@ -91,10 +92,12 @@ class DiaryController extends Controller
      */
     public function destroy(Diary $diary)
     {
-        $diary->delete();
+        // 画像削除
         if ($diary->image){
             Storage::disk('public')->delete($diary->image);
         }
+        // 日記削除
+        $diary->delete();
         return redirect()->route('diary.index');
     }
 }

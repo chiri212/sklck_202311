@@ -3,6 +3,13 @@
 @include('head')
 
 @section('content')
+    <form action="{{route('diary.destroy', $diary->id)}}" method="post">
+    @method('DELETE')
+    @csrf
+        <div class="mb-3 d-flex justify-content-end">
+            <button type="submit" class="btn btn-outline-danger px-4" onclick='return confirm("削除しますか？");'>削除</button>
+        </div>
+    </form>
     <form action="{{route('diary.update', $diary->id)}}" method="post" class="" enctype="multipart/form-data">
     @method('PUT')
     @csrf
@@ -22,15 +29,9 @@
             </label>
             <input type="file" class="form-control" id="image" name="image">
         </div>
-        <div class="mb-3 d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary px-4">更新</button>
-        </div>
-    </form>
-    <form action="{{route('diary.destroy', $diary->id)}}" method="post">
-    @method('DELETE')
-    @csrf
-        <div class="mb-3 d-flex justify-content-end">
-            <button type="submit" class="btn btn-danger px-4" onclick='return confirm("削除しますか？");'>削除</button>
+        <div class="mt-4 mb-3 d-flex justify-content-evenly">
+            <button type="button" class="btn btn-outline-secondary px-4 mr-3" onclick="history.back();">キャンセル</button>
+            <button type="submit" class="btn btn-outline-primary px-5">更新</button>
         </div>
     </form>
 @endsection

@@ -19,7 +19,7 @@
             <td>{{$diary->created_at->format('Y/m/d H:i')}}</td>
             <td><img src="{{$diary->image ? asset('storage/' . $diary->image) : asset('no_image.png')}}" alt="" width="100"></td>
             <td>{{$diary->text}}</td>
-            <td class="text-center"><i class="bi bi-pencil-square" onclick="location.href='{{route('diary.edit', $diary)}}'"></i></td>
+            <td class="text-center"><a href="{{route('diary.edit', $diary)}}"><i class="bi bi-pencil-square"></i></a></td>
         </tr>
         @endforeach
     </table>

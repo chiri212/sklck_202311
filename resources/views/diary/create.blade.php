@@ -21,7 +21,8 @@
         </label>
         <input type="file" class="form-control" id="image" name="image">
     </div>
-    <div class="mb-3 d-flex justify-content-end">
-        <button type="submit" class="btn btn-primary px-4">投稿</button>
+    <div class="mt-4 mb-3 d-flex justify-content-evenly">
+        <button type="button" class="btn btn-outline-secondary px-4 mr-3" onclick="history.back();">キャンセル</button>
+        <button type="submit" class="btn btn-outline-primary px-5">投稿</button>
     </div>
 @endsection
