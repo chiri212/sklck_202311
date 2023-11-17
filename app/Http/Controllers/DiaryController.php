@@ -81,7 +81,9 @@ class DiaryController extends Controller
             $old_image = $diary->image;
             $diary->image= $file_name;
             // 元の画像を削除
-            Storage::disk('public')->delete($old_image);
+            if ($old_image){
+                Storage::disk('public')->delete($old_image);
+            }
         }
         $diary->save();
         return redirect()->route('diary.index');
