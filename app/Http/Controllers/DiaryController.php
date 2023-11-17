@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreDiaryRequest;
 use App\Http\Requests\UpdateDiaryRequest;
 use App\Models\Diary;
+use Illuminate\Support\Facades\Storage;
 
 class DiaryController extends Controller
 {
@@ -37,7 +38,7 @@ class DiaryController extends Controller
         $file_name = null;
         if ($request->file('image')){
             $image_path = $request->file('image')->store('public');
-            $file_name = 'storage/' . basename($image_path);
+            $file_name = basename($image_path);
         }
         Diary::create([
             'text' => $request->text,
@@ -73,11 +74,12 @@ class DiaryController extends Controller
         $file_name = null;
         if ($request->file('image')){
             $image_path = $request->file('image')->store('public');
-            $file_name = 'storage/' . basename($image_path);
+            $file_name = basename($image_path);
         }
         $diary->text = $request->text;
         $diary->image= $file_name;
         $diary->save();
+        // TODO : 古い画像の削除処理
         return redirect()->route('diary.index');
     }
 
@@ -87,8 +89,9 @@ class DiaryController extends Controller
     public function destroy(Diary $diary)
     {
         $diary->delete();
-
-        // TODO : 画像削除処理を追加
+        if ($diary->image){
+            Storage::disk('public')->delete($diary->image);
+        }
         return redirect()->route('diary.index');
     }
 }
