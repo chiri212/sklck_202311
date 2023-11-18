@@ -28,21 +28,33 @@ https://github.com/chiri212/sklck_202311/assets/54467384/cdcc585c-ece1-4377-ad8e
 git clone https://github.com/chiri212/sklck_202311.git
 cd sklck_202311
 ```
-
-2. .envファイルを生成
+2. composer installを実行
+```
+composer install
+```
+3. .envファイルを生成
 ```
 cp .env.example .env
 ```
-3. Sailを起動
+4. Sailを起動
 ```
-./vendor/bin/sail up -d
+vendor/bin/sail up -d
 ```
-4. DBのマイグレーションを実行
+5. DBのマイグレーションを実行
 ```
-sail artisan migrate
+vendor/bin/sail artisan migrate
 ```
 ※Seederを同時に実行する場合は以下を実行（100件の日記が生成されます）
 ```
-sail artisan migrate --seed
+vendor/bin/sail artisan migrate --seed
 ```
-5. http://localhost にアクセス
+6. Storageのシンボリックリンク生成
+```
+vendor/bin/sail artisan storage:link
+```
+7. npmインストール、ビルド
+```
+vendor/bin/sail npm install
+vendor/bin/sail npm run dev
+```
+8. http://localhost にアクセス
