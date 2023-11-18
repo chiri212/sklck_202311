@@ -27,11 +27,18 @@
                 <span class="fs-6 text-danger"> {{$message}}</span>
                 @enderror
             </label>
-            <input type="file" class="form-control" id="image" name="image">
+            <input id="image-input" type="file" class="form-control" id="image" name="image">
+        </div>
+        <div class="mb-3">
+            <img id="image-preview" src="{{$diary->image ? asset('storage/' . $diary->image) : asset('no_image.png')}}" alt="" width="300">
         </div>
         <div class="mt-4 mb-3 d-flex justify-content-evenly">
             <button type="button" class="btn btn-outline-secondary px-4 mr-3" onclick="history.back();">キャンセル</button>
             <button type="submit" class="btn btn-outline-primary px-5">更新</button>
         </div>
     </form>
+@endsection
+
+@section('javascript')
+    @vite('resources/js/preview_image.js')
 @endsection
