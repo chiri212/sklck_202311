@@ -2,6 +2,7 @@
 日記の投稿・編集・削除を行える簡易的なWEBアプリケーションです。
 
 ## DEMO
+https://github.com/chiri212/sklck_202311/assets/54467384/cdcc585c-ece1-4377-ad8e-8609b7002b4a
 
 ## 画面・機能一覧
 - 日記一覧（/diary）
