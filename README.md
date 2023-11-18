@@ -20,7 +20,7 @@ https://github.com/chiri212/sklck_202311/assets/54467384/cdcc585c-ece1-4377-ad8e
 
 ## ローカル環境構築手順
 ### 前提：
-- Docker Desktopがインストールされていること
+- Docker Desktop, composerコマンド, gitコマンドがインストールされていること
 ### 手順
 
 1. 本リポジトリをcloneまたはpullし、リポジトリのルートディレクトリに移動
